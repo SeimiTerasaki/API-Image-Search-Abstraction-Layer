@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1 Image Search Abstraction Layer Microservice
+  h4 User stories:
+  p I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
+  p I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+  p I can get a list of the most recently submitted search strings.
+ 
+  h4 Example query usage:
+  code.red  https://cryptic-ridge-9197.herokuapp.com/api/imagesearch/lolcats%20funny?offset=2 
+  br
+  code.red https://cryptic-ridge-9197.herokuapp.com/api/latest/imagesearch/
+ 
+  h4 Example output:
+  code.space
+    |[{
+    |url: "http://data.whicdn.com/images/30855761/large.jpg",
+    |snippet: "cat and funny image",
+    |thumbnail: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRcVvn_L7D1b54fIv-1UZH1V_k1SJPRtamtdlJSjldoolzYEYZYj_XKtjzD",
+    |context: "http://weheartit.com/entry/30855761"
+    |},
+    |{
+    |url: "http://s2.favim.com/orig/33/cat-funny-lol-lolcats-mean-Favim.com-261389.jpg",
+    |snippet: "cat, funny, lol, lolcats, mean",
+    |thumbnail: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTjH2_3xIIzquPGN-GVgivEQ1Ib4T9W9mCRjcYBsvLNB-e_aWb213o2-qo4",
+    |context: "http://favim.com/image/261389/"
+    |},
+    |{
+    |url: "https://momentofzen.in/wp-content/uploads/2010/08/lolcat-funny-picture-moderator1.jpg",
+    |snippet: "lolcat-funny-picture- ...",
+    |thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly4P_8NJmjHOGZGVetmT2Zv07JqigsieKo2z7xPB-ntfpwnb1uCFj6PE",
+    |context: "https://www.momentofzen.in/2010/08/08/funneh-pickchaaaz/"
+    |}] 
+  
+  h4 Example latest output:
+  code.space
+    |[{
+    |term: "lolcats funny",
+    |when: "2016-10-11T21:12:31.927Z"
+    |},
+    |{
+    |term: "lolcats funny",
+    |when: "2016-10-11T21:12:27.692Z"
+    |},
+    |{
+    |term: "lolcats funny",
+    |when: "2016-10-11T21:12:07.643Z"
+    |},
+    |{
+    |term: "lolcats funny",
+    |when: "2016-10-11T19:09:32.791Z"
+    |}]
